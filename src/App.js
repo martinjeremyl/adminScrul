@@ -16,7 +16,7 @@ const apiDocumentationParser = entrypoint => parseHydraDocumentation(entrypoint,
         ({ api }) => ({ api }),
         (result) => {
             switch (result.status) {
-                case 401:
+                case 405:
                     return Promise.resolve({
                         api: result.api,
                         customRoutes: [{
