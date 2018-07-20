@@ -4,7 +4,7 @@ import { HydraAdmin, hydraClient, fetchHydra as baseFetchHydra } from '@api-plat
 import authProvider from './authProvider';
 import { Redirect } from 'react-router-dom';
 
-const entrypoint = 'http://vps507792.ovh.net:8080/login_check';
+const entrypoint = 'http://vps507792.ovh.net:8080/login_check/';
 const fetchHeaders = {'Authorization': `Bearer ${window.localStorage.getItem('token')}`};
 const fetchHydra = (url, options = {}) => baseFetchHydra(url, {
     ...options,
