@@ -1,6 +1,6 @@
 import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
 
-const login_uri = 'http://vps507792.ovh.net:8080/login_check/';
+const login_uri = 'http://vps507792.ovh.net:8080/login_check';
 
 export default (type, params) => {
   switch (type) {
@@ -11,7 +11,7 @@ export default (type, params) => {
         body: JSON.stringify({ email: username, password }),
         headers: new Headers({ 'Content-Type': 'application/json' }),
       });
-
+      console.log('la request: ', request);
       return fetch(request)
         .then(response => {
           if (response.status < 200 || response.status >= 300) throw new Error(response.statusText);
