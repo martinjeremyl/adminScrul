@@ -12,7 +12,11 @@ export default (type, params) => {
         headers: new Headers({ 'Content-Type': 'application/json' }),
       });
 
-      return fetch(request)
+      return fetch(`${login_uri}`, {
+        method: 'POST',
+        body: JSON.stringify({ email: username, password }),
+        headers: new Headers({ 'Content-Type': 'application/json' }),
+      })
         .then(response => {
           if (response.status < 200 || response.status >= 300) throw new Error(response.statusText);
 
